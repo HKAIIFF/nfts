@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIFNFT - 香港AI國際電影節官方NFT平台</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #3498db;
-            --secondary: #8e44ad;
-            --accent: #00ff9d;
-            --gold: #ffd700;
-            --red: #e74c3c;
+            --primary: #dc2626;
+            --secondary: #7c2d12;
+            --accent: #fbbf24;
+            --success: #10b981;
+            --warning: #f59e0b;
         }
         
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(142, 68, 173, 0.1) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(220, 38, 38, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(124, 45, 18, 0.08) 0%, transparent 20%);
         }
         
         .logo-font {
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
-            font-size: 2.2rem;
+            font-size: 2rem;
             letter-spacing: 2px;
             background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
@@ -37,18 +37,18 @@
             color: transparent;
             position: relative;
             display: inline-block;
-            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
             animation: logoGlow 3s ease-in-out infinite alternate;
         }
         
         @keyframes logoGlow {
-            0% { text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
-            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(52, 152, 219, 0.4); }
+            0% { text-shadow: 0 0 10px rgba(251, 191, 36, 0.3); }
+            100% { text-shadow: 0 0 25px rgba(251, 191, 36, 0.6), 0 0 35px rgba(220, 38, 38, 0.4); }
         }
         
         .logo-sub {
-            font-family: 'Noto Sans TC', sans-serif;
-            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
             font-size: 0.6rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -58,17 +58,20 @@
             opacity: 0.9;
         }
         
-        .navbar {
-            background-color: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        .navbar.scrolled {
-            background-color: rgba(10, 10, 10, 0.98);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .accent-bg {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.2);
         }
         
         .card {
@@ -82,8 +85,14 @@
         
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
-            border-color: rgba(0, 255, 157, 0.3);
+            box-shadow: 0 15px 30px rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+        
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
         }
         
         .btn-primary {
@@ -91,12 +100,11 @@
             transition: all 0.3s ease;
             border: none;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4);
         }
         
         .btn-secondary {
@@ -108,17 +116,17 @@
         }
         
         .btn-secondary:hover {
-            background-color: rgba(0, 255, 157, 0.1);
+            background-color: rgba(251, 191, 36, 0.1);
             transform: translateY(-3px);
         }
         
         .hero {
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            padding-top: 100px;
+            padding-top: 80px;
         }
         
         .hero:before {
@@ -128,7 +136,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(52, 152, 219, 0.1) 50%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
             z-index: 1;
         }
         
@@ -147,7 +155,7 @@
             background-size: cover;
             background-position: center;
             opacity: 0.6;
-            animation: bgPan 60s infinite linear;
+            animation: bgPan 30s infinite linear;
         }
         
         @keyframes bgPan {
@@ -166,19 +174,49 @@
             100% { transform: translateY(0px); }
         }
         
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-right {
+            animation: slideRight 0.8s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
         .ai-element {
             position: absolute;
-            background-color: rgba(52, 152, 219, 0.1);
-            border: 1px solid rgba(52, 152, 219, 0.3);
+            background-color: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
             backdrop-filter: blur(5px);
             padding: 10px;
             border-radius: 8px;
-            font-family: 'Orbitron', monospace;
+            font-family: monospace;
             font-size: 12px;
             color: var(--accent);
             z-index: 3;
             pointer-events: none;
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.1);
         }
         
         .data-stream {
@@ -187,7 +225,7 @@
             width: 2px;
             background: linear-gradient(to bottom, transparent, var(--accent), var(--secondary), transparent);
             z-index: 0;
-            animation: dataStream 3s linear infinite;
+            animation: dataStream 2s linear infinite;
             opacity: 0.3;
         }
         
@@ -196,203 +234,92 @@
             100% { transform: translateY(100vh); }
         }
         
-        .nft-card {
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .nft-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 255, 157, 0.25);
-        }
-        
-        .nft-card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .nft-card:hover .nft-card-overlay {
-            transform: translateY(0);
-        }
-        
-        .category-badge {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .price-badge {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        
-        .filter-pill {
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-        
-        .filter-pill.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-color: var(--accent);
-        }
-        
-        .filter-pill:hover:not(.active) {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(0, 255, 157, 0.3);
-        }
-        
-        .language-selector {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            background-color: rgba(26, 32, 44, 0.95);
-            min-width: 180px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            z-index: 100;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            top: 45px;
-            right: 0;
-            backdrop-filter: blur(15px);
-        }
-        
-        .language-selector:hover .language-dropdown {
-            display: block;
-        }
-        
-        .language-dropdown a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .language-dropdown a:hover {
-            background-color: rgba(52, 152, 219, 0.2);
-        }
-        
-        .language-dropdown img {
-            width: 24px;
-            margin-right: 12px;
-            border-radius: 4px;
-        }
-        
-        .login-dropdown {
-            display: none;
-            position: absolute;
-            background-color: rgba(26, 32, 44, 0.95);
-            min-width: 300px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            z-index: 100;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            top: 50px;
-            right: 0;
-            padding: 20px;
-            backdrop-filter: blur(15px);
-        }
-        
-        .login-container:hover .login-dropdown {
-            display: block;
-        }
-        
-        .login-option {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            margin-bottom: 8px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-        
-        .login-option:hover {
-            background: rgba(52, 152, 219, 0.2);
-            transform: translateY(-2px);
-            border-color: rgba(0, 255, 157, 0.3);
-        }
-        
-        .login-option i {
-            font-size: 18px;
-            margin-right: 12px;
-            width: 28px;
-            text-align: center;
-        }
-        
         .mobile-menu {
             display: none;
             position: fixed;
             top: 0;
             right: 0;
-            width: 300px;
+            width: 100%;
+            max-width: 350px;
             height: 100vh;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(15px);
-            z-index: 2000;
+            z-index: 1000;
             padding: 20px;
             transform: translateX(100%);
             transition: transform 0.3s ease;
-            border-left: 1px solid rgba(0, 255, 157, 0.1);
         }
         
         .mobile-menu.open {
             transform: translateX(0);
         }
         
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1500;
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--accent);
         }
         
-        .mobile-menu-overlay.show {
-            display: block;
+        .nft-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nft-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.15);
+        }
+        
+        .nft-card-hover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nft-card:hover .nft-card-hover {
+            transform: translateY(0);
+        }
+        
+        .filter-pill {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        
+        .filter-pill.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .filter-pill:hover:not(.active) {
+            background-color: rgba(251, 191, 36, 0.1);
+        }
+        
+        .token-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
         
         .stats-card {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             border-radius: 16px;
             background: rgba(26, 32, 44, 0.5);
-            border: 1px solid rgba(0, 255, 157, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.1);
             transition: all 0.3s ease;
         }
         
@@ -403,77 +330,70 @@
         }
         
         .stats-card i {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             color: var(--accent);
         }
         
         .stats-card .number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
         .input-field {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
-            transition: all 0.3s ease;
         }
         
         .input-field:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
         }
         
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+        .copyright-info {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
         }
         
-        .section-title.center:after {
-            left: 50%;
-            transform: translateX(-50%);
+        .ecosystem-card {
+            background: rgba(26, 32, 44, 0.6);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
         
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0;
+        .ecosystem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.15);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .ecosystem-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
         }
         
         /* 響應式設計 */
@@ -486,50 +406,56 @@
                 display: block;
             }
             
-            .hero {
-                min-height: 80vh;
-                padding-top: 80px;
-            }
-            
             .logo-font {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
-            .logo-sub {
-                font-size: 0.5rem;
+            .hero {
+                min-height: 70vh;
+                padding-top: 100px;
             }
             
             .hero-bg {
                 animation: none;
             }
             
-            .ai-element {
-                font-size: 10px;
-                padding: 8px;
+            .navbar {
+                padding: 0.75rem 1rem;
             }
             
-            .navbar {
-                padding: 10px 0;
+            .hero-content h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-content p {
+                font-size: 1rem !important;
             }
         }
         
         @media (max-width: 480px) {
             .hero {
-                min-height: 70vh;
+                min-height: 60vh;
+                padding-top: 120px;
             }
             
             .logo-font {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.5rem;
             }
             
             .mobile-menu {
-                width: 280px;
+                width: 100%;
+                max-width: none;
             }
         }
         
-        /* 自定義滾動條 */
+        /* 滾動條樣式 */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
         
         ::-webkit-scrollbar-track {
@@ -541,1253 +467,1271 @@
             border-radius: 4px;
         }
         
-        .creator-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-        }
-        
-        .collection-banner {
-            height: 200px;
+        .feature-icon {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
         }
         
-        .collection-banner:before {
-            content: '';
+        .royalty-demo {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--secondary));
+            border-radius: 9999px;
+            height: 8px;
+        }
+        
+        .login-dropdown {
+            display: none;
             position: absolute;
-            top: 0;
-            left: 0;
+            background-color: rgba(26, 32, 44, 0.95);
+            min-width: 280px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            top: 50px;
             right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3') center/cover;
-            opacity: 0.3;
+            padding: 15px;
         }
         
-        .badge-new {
-            background: linear-gradient(135deg, var(--red), #ff6b6b);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .login-container:hover .login-dropdown {
+            display: block;
         }
         
-        .badge-hot {
-            background: linear-gradient(135deg, #ff9500, #ffc107);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .login-option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .login-option:hover {
+            background: rgba(220, 38, 38, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .login-option i {
+            font-size: 20px;
+            margin-right: 12px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .login-option span {
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <!-- AI裝飾元素 -->
-    <div class="ai-element" style="top: 120px; left: 5%;">
-        NFT_鑄造中... <br>
-        狀態: 區塊鏈驗證 <br>
-        // AI影視資產生成
+    <!-- AI 裝飾元素 -->
+    <div class="ai-element" style="top: 140px; left: 5%;">
+        NFT鑄造中... <br>
+        區塊鏈驗證: 100% <br>
+        // AI生成資產
     </div>
     
-    <div class="ai-element" style="bottom: 150px; right: 8%;">
-        版權確權: 完成 <br>
-        HASH: 0x9F2B...C8E <br>
-        // 智能合約執行
+    <div class="ai-element" style="bottom: 200px; right: 8%;">
+        版稅分配: 活躍 <br>
+        智能合約: 0x9F3...A2B <br>
+        // 自動化執行
     </div>
     
     <!-- 數據流 -->
     <div class="data-stream" style="left: 15%; animation-delay: 0s;"></div>
-    <div class="data-stream" style="left: 35%; animation-delay: 0.8s;"></div>
-    <div class="data-stream" style="left: 55%; animation-delay: 1.6s;"></div>
-    <div class="data-stream" style="left: 75%; animation-delay: 2.4s;"></div>
-
-    <!-- 移動端遮罩 -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="data-stream" style="left: 35%; animation-delay: 0.7s;"></div>
+    <div class="data-stream" style="left: 55%; animation-delay: 1.4s;"></div>
+    <div class="data-stream" style="left: 75%; animation-delay: 2.1s;"></div>
 
     <!-- 導航欄 -->
-    <nav class="navbar fixed w-full px-4 py-3" id="navbar">
+    <nav class="navbar fixed w-full z-50 px-4 py-3">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex flex-col items-center">
                 <div class="logo-font">AIFNFT</div>
                 <div class="logo-sub">香港AI國際電影節官方NFT平台</div>
             </a>
-            
             <div class="hidden lg:flex space-x-8 desktop-nav">
-                <a href="#marketplace" class="hover:text-blue-400 transition duration-300">市場</a>
-                <a href="#collections" class="hover:text-blue-400 transition duration-300">收藏品</a>
-                <a href="#create" class="hover:text-blue-400 transition duration-300">創建</a>
-                <a href="#about" class="hover:text-blue-400 transition duration-300">關於</a>
-                <a href="#community" class="hover:text-blue-400 transition duration-300">社群</a>
+                <a href="#marketplace" class="hover:text-red-400 transition">NFT市場</a>
+                <a href="#collections" class="hover:text-red-400 transition">收藏品</a>
+                <a href="#create" class="hover:text-red-400 transition">鑄造NFT</a>
+                <a href="#features" class="hover:text-red-400 transition">平台特色</a>
+                <a href="#ecosystem" class="hover:text-red-400 transition">HKAIIFF生態</a>
+                <a href="#about" class="hover:text-red-400 transition">關於我們</a>
             </div>
-            
-            <div class="flex items-center space-x-4">
-                <!-- 語言選擇器 -->
-                <div class="language-selector">
-                    <div class="flex items-center cursor-pointer px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
-                        <img src="https://flagcdn.com/w40/tw.png" alt="繁體中文" class="w-5 h-5 mr-2">
-                        <span class="text-sm">繁中</span>
-                        <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                    </div>
-                    <div class="language-dropdown">
-                        <a href="#" data-lang="zh-Hant">
-                            <img src="https://flagcdn.com/w40/tw.png" alt="繁體中文">
-                            繁體中文
-                        </a>
-                        <a href="#" data-lang="zh-Hans">
-                            <img src="https://flagcdn.com/w40/cn.png" alt="简体中文">
-                            简体中文
-                        </a>
-                        <a href="#" data-lang="en">
-                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                            English
-                        </a>
-                        <a href="#" data-lang="ja">
-                            <img src="https://flagcdn.com/w40/jp.png" alt="日本語">
-                            日本語
-                        </a>
-                        <a href="#" data-lang="ko">
-                            <img src="https://flagcdn.com/w40/kr.png" alt="한국어">
-                            한국어
-                        </a>
-                        <a href="#" data-lang="es">
-                            <img src="https://flagcdn.com/w40/es.png" alt="Español">
-                            Español
-                        </a>
-                        <a href="#" data-lang="fr">
-                            <img src="https://flagcdn.com/w40/fr.png" alt="Français">
-                            Français
-                        </a>
-                        <a href="#" data-lang="de">
-                            <img src="https://flagcdn.com/w40/de.png" alt="Deutsch">
-                            Deutsch
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- 登入容器 -->
+            <div class="flex items-center space-x-3">
+                <!-- 登入選項 -->
                 <div class="login-container relative">
-                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                        <i class="fas fa-user mr-2"></i>
-                        登入
-                    </button>
+                    <button class="btn-primary px-4 py-2 rounded-full text-sm">登入</button>
                     <div class="login-dropdown">
-                        <h3 class="font-bold text-lg mb-4 text-center">登入 AIFNFT</h3>
+                        <h3 class="font-bold text-lg mb-4">登入AIFNFT</h3>
                         
                         <div class="login-option" data-login="google">
                             <i class="fab fa-google text-red-500"></i>
-                            <span>使用 Google 登入</span>
+                            <span>Google 登入</span>
                         </div>
                         
                         <div class="login-option" data-login="facebook">
                             <i class="fab fa-facebook text-blue-600"></i>
-                            <span>使用 Facebook 登入</span>
+                            <span>Facebook 登入</span>
                         </div>
                         
                         <div class="login-option" data-login="twitter">
                             <i class="fab fa-twitter text-blue-400"></i>
-                            <span>使用 Twitter 登入</span>
+                            <span>Twitter 登入</span>
                         </div>
                         
                         <div class="login-option" data-login="apple">
                             <i class="fab fa-apple"></i>
-                            <span>使用 Apple ID 登入</span>
+                            <span>Apple 登入</span>
                         </div>
                         
-                        <div class="border-t border-gray-600 my-4"></div>
+                        <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 15px 0;"></div>
                         
-                        <div class="login-option" data-login="metamask" style="background: linear-gradient(135deg, rgba(255, 120, 0, 0.2), rgba(255, 200, 0, 0.2));">
-                            <i class="fas fa-wallet text-orange-400"></i>
-                            <span>連接 MetaMask</span>
+                        <div class="login-option" data-login="metamask" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(124, 45, 18, 0.3));">
+                            <i class="fas fa-wallet text-yellow-400"></i>
+                            <span>MetaMask 錢包</span>
                         </div>
                         
-                        <div class="login-option" data-login="walletconnect" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));">
-                            <i class="fas fa-link text-blue-400"></i>
+                        <div class="login-option" data-login="walletconnect" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(124, 45, 18, 0.3));">
+                            <i class="fas fa-plug text-blue-300"></i>
                             <span>WalletConnect</span>
                         </div>
                         
                         <div class="mt-4 text-center text-xs text-gray-400">
-                            登入即表示您同意我們的
-                            <a href="#" class="text-blue-400 hover:underline">服務條款</a>
-                            和
-                            <a href="#" class="text-blue-400 hover:underline">隱私政策</a>
+                            登入即表示同意我們的<a href="#" class="text-red-400">服務條款</a>和<a href="#" class="text-red-400">隱私政策</a>
                         </div>
                     </div>
                 </div>
                 
-                <button class="lg:hidden text-white mobile-menu-btn" id="mobileMenuBtn">
+                <button class="lg:hidden text-white mobile-menu-btn">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- 移動端選單 -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="flex justify-between items-center mb-8">
-            <div class="text-xl font-bold">選單</div>
-            <button class="text-white" id="mobileMenuClose">
-                <i class="fas fa-times text-xl"></i>
-            </button>
+    <!-- 手機菜單 -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close">
+            <i class="fas fa-times"></i>
         </div>
         
-        <div class="flex flex-col space-y-6">
-            <a href="#marketplace" class="text-lg hover:text-blue-400 transition py-2 border-b border-gray-700">市場</a>
-            <a href="#collections" class="text-lg hover:text-blue-400 transition py-2 border-b border-gray-700">收藏品</a>
-            <a href="#create" class="text-lg hover:text-blue-400 transition py-2 border-b border-gray-700">創建</a>
-            <a href="#about" class="text-lg hover:text-blue-400 transition py-2 border-b border-gray-700">關於</a>
-            <a href="#community" class="text-lg hover:text-blue-400 transition py-2 border-b border-gray-700">社群</a>
-            
-            <div class="pt-6">
-                <h3 class="text-base font-semibold mb-4">語言設定</h3>
-                <select class="w-full bg-gray-800 text-white p-3 rounded-lg border border-gray-600">
-                    <option value="zh-Hant">繁體中文</option>
-                    <option value="zh-Hans">简体中文</option>
-                    <option value="en">English</option>
-                    <option value="ja">日本語</option>
-                    <option value="ko">한국어</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                </select>
-            </div>
+        <div class="mt-16 flex flex-col space-y-6">
+            <a href="#marketplace" class="text-xl hover:text-red-400 transition">NFT市場</a>
+            <a href="#collections" class="text-xl hover:text-red-400 transition">收藏品</a>
+            <a href="#create" class="text-xl hover:text-red-400 transition">鑄造NFT</a>
+            <a href="#features" class="text-xl hover:text-red-400 transition">平台特色</a>
+            <a href="#ecosystem" class="text-xl hover:text-red-400 transition">HKAIIFF生態</a>
+            <a href="#about" class="text-xl hover:text-red-400 transition">關於我們</a>
             
             <div class="pt-6 border-t border-gray-700">
                 <button class="btn-primary w-full py-3 rounded-lg font-medium text-center mb-4">
-                    <i class="fas fa-user mr-2"></i>
                     登入帳戶
                 </button>
                 <button class="btn-secondary w-full py-3 rounded-lg font-medium text-center">
-                    <i class="fas fa-wallet mr-2"></i>
                     連接錢包
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- 英雄區塊 -->
-    <section class="hero" id="home">
+    <!-- 英雄區 -->
+    <section class="hero">
         <div class="hero-bg"></div>
         <div class="container mx-auto px-4 hero-content">
-            <div class="max-w-4xl animate-fade-in">
-                <div class="mb-6">
-                    <span class="badge-new">全新上線</span>
-                    <span class="badge-hot ml-2">熱門</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    AI影視NFT的
-                    <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent">
-                        未來世界
-                    </span>
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    香港AI國際電影節<span class="gradient-text">官方NFT平台</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                    探索、收藏和交易獨特的AI生成電影資產。從概念場景到角色設計，從專屬片段到版權股份，
-                    <br class="hidden md:block">
-                    開啟電影產業數位資產化的新紀元。
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                    探索、收藏和交易獨特的AI生成電影資產 - 角色設計、場景概念、專屬片段和版權股份，開啟電影產業的未來
                 </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                    <a href="#marketplace" class="btn-primary px-8 py-4 rounded-full font-medium text-center text-lg">
-                        <i class="fas fa-store mr-2"></i>
-                        探索市場
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#collections" class="btn-primary px-8 py-4 rounded-full font-medium text-lg">
+                        探索收藏品
                     </a>
-                    <a href="#create" class="btn-secondary px-8 py-4 rounded-full font-medium text-center text-lg">
-                        <i class="fas fa-plus mr-2"></i>
-                        創建NFT
+                    <a href="#create" class="btn-secondary px-8 py-4 rounded-full font-medium text-lg">
+                        鑄造NFT
                     </a>
                 </div>
                 
                 <!-- 統計數據 -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
                     <div class="stats-card">
-                        <i class="fas fa-cube"></i>
-                        <div class="number">15,680+</div>
-                        <div class="text-sm text-gray-400">NFT藏品</div>
+                        <i class="fas fa-cubes"></i>
+                        <div class="number">15.8K+</div>
+                        <div class="text-sm">NFT總數</div>
                     </div>
                     <div class="stats-card">
                         <i class="fas fa-users"></i>
-                        <div class="number">8,432</div>
-                        <div class="text-sm text-gray-400">收藏家</div>
+                        <div class="number">6.2K</div>
+                        <div class="text-sm">活躍收藏者</div>
                     </div>
                     <div class="stats-card">
-                        <i class="fas fa-film"></i>
-                        <div class="number">2,156</div>
-                        <div class="text-sm text-gray-400">AI電影</div>
+                        <i class="fas fa-coins"></i>
+                        <div class="number">¥28.8M</div>
+                        <div class="text-sm">交易總額</div>
                     </div>
                     <div class="stats-card">
                         <i class="fas fa-chart-line"></i>
-                        <div class="number">3.8M</div>
-                        <div class="text-sm text-gray-400">交易額(AIF)</div>
+                        <div class="number">42%</div>
+                        <div class="text-sm">平均增長率</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 特色收藏區塊 -->
-    <section class="py-20" id="collections">
+    <!-- NFT市場區 -->
+    <section class="py-20" id="marketplace">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-3xl md:text-4xl font-bold">精選收藏系列</h2>
-                <p class="text-xl text-gray-300 mt-4 max-w-2xl mx-auto">
-                    發現來自頂尖AI電影創作者的獨特數位藏品，每一件都是未來電影藝術的傑作
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">精選NFT收藏品</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    發現獨一無二的AI電影資產，每個NFT都承載著創意價值和版權資訊，透過區塊鏈技術確保真實性和所有權
                 </p>
             </div>
-
-            <!-- 主要收藏系列 -->
-            <div class="mb-16 animate-fade-in">
-                <div class="collection-banner mb-8 flex items-end p-8">
-                    <div class="text-white z-10 relative">
-                        <h3 class="text-3xl font-bold mb-2">《數位地平線之外》</h3>
-                        <p class="text-lg opacity-90 mb-4">香港AI國際電影節獲獎作品官方收藏</p>
-                        <div class="flex items-center space-x-4">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="創作者" class="creator-avatar">
-                            <div>
-                                <div class="font-semibold">數位夢想工作室</div>
-                                <div class="text-sm opacity-75">認證創作者</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- NFT卡片 1 -->
-                    <div class="nft-card card">
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="神經網絡樞紐" class="w-full h-48 object-cover">
-                            <div class="absolute top-3 left-3">
-                                <span class="category-badge">場景概念</span>
-                            </div>
-                            <div class="absolute top-3 right-3">
-                                <span class="price-badge">1.2 AIF</span>
-                            </div>
-                            <div class="nft-card-overlay">
-                                <h3 class="text-lg font-bold mb-2">神經網絡樞紐</h3>
-                                <p class="text-sm text-gray-300 mb-3">限量版場景設計，展現AI意識覺醒的關鍵時刻</p>
-                                <div class="flex justify-between items-center">
-                                    <div class="text-sm">
-                                        <div class="text-gray-400">當前出價</div>
-                                        <div class="text-green-400 font-semibold">1.2 AIF</div>
-                                    </div>
-                                    <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                        出價
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="font-bold text-lg">神經網絡樞紐</h3>
-                                <div class="text-sm font-medium">#001/10</div>
-                            </div>
-                            <div class="flex justify-between items-center text-sm text-gray-400">
-                                <div>剩餘時間: 2天 4小時</div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-heart mr-1"></i>
-                                    <span>234</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NFT卡片 2 -->
-                    <div class="nft-card card">
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1634149926093-ec6b9b7f9a8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="量子女pilot" class="w-full h-48 object-cover">
-                            <div class="absolute top-3 left-3">
-                                <span class="category-badge">角色設計</span>
-                            </div>
-                            <div class="absolute top-3 right-3">
-                                <span class="price-badge">2.8 AIF</span>
-                            </div>
-                            <div class="nft-card-overlay">
-                                <h3 class="text-lg font-bold mb-2">量子女pilot</h3>
-                                <p class="text-sm text-gray-300 mb-3">AI生成的未來主義角色，獨特的視覺設計風格</p>
-                                <div class="flex justify-between items-center">
-                                    <div class="text-sm">
-                                        <div class="text-gray-400">當前出價</div>
-                                        <div class="text-green-400 font-semibold">2.8 AIF</div>
-                                    </div>
-                                    <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                        出價
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="font-bold text-lg">量子女pilot</h3>
-                                <div class="text-sm font-medium">#003/5</div>
-                            </div>
-                            <div class="flex justify-between items-center text-sm text-gray-400">
-                                <div>剩餘時間: 1天 8小時</div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-heart mr-1"></i>
-                                    <span>156</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NFT卡片 3 -->
-                    <div class="nft-card card">
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="時空傳送門" class="w-full h-48 object-cover">
-                            <div class="absolute top-3 left-3">
-                                <span class="category-badge">專屬片段</span>
-                            </div>
-                            <div class="absolute top-3 right-3">
-                                <span class="price-badge">0.95 AIF</span>
-                            </div>
-                            <div class="nft-card-overlay">
-                                <h3 class="text-lg font-bold mb-2">時空傳送門</h3>
-                                <p class="text-sm text-gray-300 mb-3">15秒專屬片段，展現驚人的時空扭曲效果</p>
-                                <div class="flex justify-between items-center">
-                                    <div class="text-sm">
-                                        <div class="text-gray-400">固定價格</div>
-                                        <div class="text-green-400 font-semibold">0.95 AIF</div>
-                                    </div>
-                                    <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                        購買
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="font-bold text-lg">時空傳送門</h3>
-                                <div class="text-sm font-medium">#007/12</div>
-                            </div>
-                            <div class="flex justify-between items-center text-sm text-gray-400">
-                                <div>剛剛上架</div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-heart mr-1"></i>
-                                    <span>89</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NFT卡片 4 -->
-                    <div class="nft-card card">
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="版權股份" class="w-full h-48 object-cover">
-                            <div class="absolute top-3 left-3">
-                                <span class="category-badge">版權股份</span>
-                            </div>
-                            <div class="absolute top-3 right-3">
-                                <span class="price-badge">12.5 AIF</span>
-                            </div>
-                            <div class="nft-card-overlay">
-                                <h3 class="text-lg font-bold mb-2">電影版權股份</h3>
-                                <p class="text-sm text-gray-300 mb-3">《數位地平線之外》2%版權收益分享權</p>
-                                <div class="flex justify-between items-center">
-                                    <div class="text-sm">
-                                        <div class="text-gray-400">當前出價</div>
-                                        <div class="text-green-400 font-semibold">12.5 AIF</div>
-                                    </div>
-                                    <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                        出價
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="font-bold text-lg">電影版權股份</h3>
-                                <div class="text-sm font-medium">#025/100</div>
-                            </div>
-                            <div class="flex justify-between items-center text-sm text-gray-400">
-                                <div>年化收益: 8-15%</div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-heart mr-1"></i>
-                                    <span>412</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 市場瀏覽區塊 -->
-    <section class="py-20 bg-gradient-to-b from-transparent to-gray-900" id="marketplace">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 animate-fade-in">
-                <div>
-                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">探索NFT市場</h2>
-                    <p class="text-xl text-gray-300 max-w-2xl">
-                        瀏覽來自全球AI電影創作者的獨特數位資產，發現下一個收藏珍品
-                    </p>
-                </div>
-                <div class="mt-6 lg:mt-0">
-                    <button class="btn-secondary px-6 py-3 rounded-full">
-                        <i class="fas fa-sliders-h mr-2"></i>
-                        進階篩選
-                    </button>
-                </div>
-            </div>
-
+            
             <!-- 篩選器 -->
             <div class="mb-12 animate-fade-in">
-                <div class="flex flex-wrap gap-4 mb-8">
-                    <button class="filter-pill active">全部類型</button>
+                <div class="flex flex-wrap gap-4 mb-6 justify-center">
+                    <button class="filter-pill active">全部NFT</button>
                     <button class="filter-pill">場景概念</button>
                     <button class="filter-pill">角色設計</button>
                     <button class="filter-pill">專屬片段</button>
                     <button class="filter-pill">版權股份</button>
                     <button class="filter-pill">幕後花絮</button>
-                    <button class="filter-pill">音樂原聲</button>
+                    <button class="filter-pill">配樂作品</button>
                 </div>
                 
-                <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
-                    <div class="relative w-full lg:w-auto">
-                        <input type="text" placeholder="搜尋NFT、創作者或收藏..." 
-                               class="input-field px-6 py-3 pr-12 rounded-full w-full lg:w-96">
-                        <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="relative w-full md:w-auto">
+                        <input type="text" placeholder="搜尋NFT..." class="input-field px-6 py-3 rounded-full w-full md:w-80">
+                        <i class="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                     
-                    <div class="flex gap-3 w-full lg:w-auto">
-                        <select class="input-field px-4 py-3 rounded-full text-sm appearance-none bg-gray-800 pr-8 flex-1 lg:flex-none">
-                            <option>最新上架</option>
-                            <option>價格：低到高</option>
-                            <option>價格：高到低</option>
-                            <option>最受歡迎</option>
-                            <option>即將結束</option>
-                        </select>
-                        <button class="btn-secondary p-3 rounded-full">
-                            <i class="fas fa-th"></i>
-                        </button>
-                        <button class="btn-secondary p-3 rounded-full">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NFT網格 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
-                <!-- 更多NFT卡片 -->
-                <div class="nft-card card">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                             alt="霓虹街道" class="w-full h-48 object-cover">
-                        <div class="absolute top-3 left-3">
-                            <span class="category-badge">場景概念</span>
-                        </div>
-                        <div class="absolute top-3 right-3">
-                            <span class="price-badge">0.75 AIF</span>
-                        </div>
-                        <div class="nft-card-overlay">
-                            <h3 class="text-lg font-bold mb-2">霓虹街道</h3>
-                            <p class="text-sm text-gray-300 mb-3">未來城市的迷人夜景，充滿賽博朋克美學</p>
-                            <div class="flex justify-between items-center">
-                                <div class="text-sm">
-                                    <div class="text-gray-400">固定價格</div>
-                                    <div class="text-green-400 font-semibold">0.75 AIF</div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                    購買
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-bold">霓虹街道</h3>
-                            <div class="text-sm font-medium">#002/8</div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm text-gray-400">
-                            <div>新視覺工作室</div>
-                            <div class="flex items-center">
-                                <i class="fas fa-heart mr-1"></i>
-                                <span>67</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="nft-card card">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                             alt="機械戰士" class="w-full h-48 object-cover">
-                        <div class="absolute top-3 left-3">
-                            <span class="category-badge">角色設計</span>
-                        </div>
-                        <div class="absolute top-3 right-3">
-                            <span class="price-badge">1.9 AIF</span>
-                        </div>
-                        <div class="nft-card-overlay">
-                            <h3 class="text-lg font-bold mb-2">機械戰士</h3>
-                            <p class="text-sm text-gray-300 mb-3">精密設計的AI戰士，結合人性與機械美學</p>
-                            <div class="flex justify-between items-center">
-                                <div class="text-sm">
-                                    <div class="text-gray-400">當前出價</div>
-                                    <div class="text-green-400 font-semibold">1.9 AIF</div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                    出價
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-bold">機械戰士</h3>
-                            <div class="text-sm font-medium">#001/3</div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm text-gray-400">
-                            <div>剩餘: 3天 12小時</div>
-                            <div class="flex items-center">
-                                <i class="fas fa-heart mr-1"></i>
-                                <span>198</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="nft-card card">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                             alt="音波視覺" class="w-full h-48 object-cover">
-                        <div class="absolute top-3 left-3">
-                            <span class="category-badge">音樂原聲</span>
-                        </div>
-                        <div class="absolute top-3 right-3">
-                            <span class="price-badge">0.65 AIF</span>
-                        </div>
-                        <div class="nft-card-overlay">
-                            <h3 class="text-lg font-bold mb-2">音波視覺</h3>
-                            <p class="text-sm text-gray-300 mb-3">AI創作的原創配樂，附帶獨特視覺化效果</p>
-                            <div class="flex justify-between items-center">
-                                <div class="text-sm">
-                                    <div class="text-gray-400">固定價格</div>
-                                    <div class="text-green-400 font-semibold">0.65 AIF</div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                    購買
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-bold">音波視覺</h3>
-                            <div class="text-sm font-medium">#004/12</div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm text-gray-400">
-                            <div>聲響工作室</div>
-                            <div class="flex items-center">
-                                <i class="fas fa-heart mr-1"></i>
-                                <span>142</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="nft-card card">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                             alt="幕後花絮" class="w-full h-48 object-cover">
-                        <div class="absolute top-3 left-3">
-                            <span class="category-badge">幕後花絮</span>
-                        </div>
-                        <div class="absolute top-3 right-3">
-                            <span class="price-badge">0.35 AIF</span>
-                        </div>
-                        <div class="nft-card-overlay">
-                            <h3 class="text-lg font-bold mb-2">製作過程</h3>
-                            <p class="text-sm text-gray-300 mb-3">獨家幕後製作花絮，展現AI創作的神奇過程</p>
-                            <div class="flex justify-between items-center">
-                                <div class="text-sm">
-                                    <div class="text-gray-400">固定價格</div>
-                                    <div class="text-green-400 font-semibold">0.35 AIF</div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm">
-                                    購買
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="font-bold">製作過程</h3>
-                            <div class="text-sm font-medium">#015/25</div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm text-gray-400">
-                            <div>創意工坊</div>
-                            <div class="flex items-center">
-                                <i class="fas fa-heart mr-1"></i>
-                                <span>89</span>
-                            </div>
+                    <div class="flex gap-3">
+                        <div class="relative">
+                            <select class="input-field px-4 py-3 rounded-full text-sm appearance-none pr-10">
+                                <option>最新上架</option>
+                                <option>價格：低到高</option>
+                                <option>價格：高到低</option>
+                                <option>最受歡迎</option>
+                                <option>即將結束</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- 載入更多按鈕 -->
-            <div class="text-center mt-12 animate-fade-in">
-                <button class="btn-secondary px-8 py-3 rounded-full font-medium">
-                    <i class="fas fa-plus mr-2"></i>
-                    載入更多NFT
-                </button>
+            
+            <!-- 精選收藏品：《數位夢境》 -->
+            <div class="mb-20 animate-fade-in" id="collections">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl md:text-3xl font-bold">精選收藏：《數位夢境》</h3>
+                    <a href="#" class="text-red-400 hover:text-red-300 transition">
+                        查看完整收藏
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- NFT 1 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-purple-600 to-blue-800 flex items-center justify-center text-white font-bold">
+                                神經網絡樞紐
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">場景概念</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                2/7
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">神經網絡樞紐</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥3,200</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>當前出價</span>
+                                <span>2天後結束</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 2 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center text-white font-bold text-center">
+                                太空漫步
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">專屬片段</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                1/8
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">太空漫步片段</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥4,500</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>固定價格</span>
+                                <span>新上架</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 3 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-orange-600 to-red-800 flex items-center justify-center text-white font-bold text-center">
+                                科幻音效
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">配樂作品</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                8/25
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">科幻音效集</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥880</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>固定價格</span>
+                                <span>平價精選</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 4 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-indigo-600 to-blue-800 flex items-center justify-center text-white font-bold">
+                                時空隧道
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">場景概念</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                5/15
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">時空隧道</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥2,650</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>當前出價</span>
+                                <span>熱門競拍</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 5 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-red-600 to-pink-800 flex items-center justify-center text-white font-bold">
+                                賽博女戰士
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">角色設計</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                1/4
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">賽博女戰士</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥5,200</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>當前出價</span>
+                                <span>1天後結束</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 6 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-yellow-600 to-orange-800 flex items-center justify-center text-white font-bold text-center">
+                                夢境序列
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">專屬片段</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                3/9
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">夢境序列片段</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥3,888</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>固定價格</span>
+                                <span>藝術精品</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 7 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-purple-600 to-indigo-800 flex items-center justify-center text-white font-bold text-center">
+                                幕後花絮
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">幕後花絮</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                12/30
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">製作花絮集</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥599</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>固定價格</span>
+                                <span>超值收藏</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 8 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-teal-600 to-green-800 flex items-center justify-center text-white font-bold">
+                                星球表面
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">場景概念</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                7/20
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">異星球表面</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥1,450</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>固定價格</span>
+                                <span>科幻經典</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 9 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-amber-600 to-yellow-800 flex items-center justify-center text-white font-bold">
+                                AI指揮官
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">角色設計</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                1/5
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">AI指揮官</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥7,800</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>當前出價</span>
+                                <span>限量珍藏</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NFT 10 -->
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="w-full h-48 bg-gradient-to-br from-violet-600 to-purple-800 flex items-center justify-center text-white font-bold text-center">
+                                版權股份
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="token-badge">版權股份</span>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-black bg-opacity-50 px-2 py-1 rounded text-xs">
+                                15/100
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-bold">新銳導演版權</h4>
+                                <div class="text-lg font-bold text-yellow-400">¥15,800</div>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>當前出價</span>
+                                <span class="text-green-400">3% 版權收益</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 創建NFT區塊 -->
+    <!-- HKAIIFF生態系統介紹 -->
+    <section class="py-20 bg-gradient-to-r from-red-900/20 to-yellow-900/20" id="ecosystem">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">HKAIIFF生態系統</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    香港AI國際電影節構建「4+1+1」完整生態架構，打造全球首個AI原生影視產業生態系統，實現創作、融資、分發、教育、互動的全鏈條整合
+                </p>
+            </div>
+            
+            <!-- 四大核心支柱 -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-yellow-400">四大核心支柱</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- 展映競賽單元 -->
+                    <div class="ecosystem-card animate-slide-up">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">展映競賽單元</h4>
+                        <p class="text-gray-300 mb-4">
+                            全球AI原生影視作品展示平台，專業評審與行業認可機制，獲獎作品NFT化與價值變現
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li>• 國際專業評審團</li>
+                            <li>• 多元化獎項設置</li>
+                            <li>• 獲獎作品NFT化</li>
+                            <li>• 全球媒體曝光</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 香港AI電影學院 -->
+                    <div class="ecosystem-card animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">香港AI電影學院 (AIFA)</h4>
+                        <p class="text-gray-300 mb-4">
+                            AI影視技能培訓與認證，學生作品NFT化展示，人才培養與產業對接
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li>• AI創作技能培訓</li>
+                            <li>• 專業認證體系</li>
+                            <li>• 學生作品展示</li>
+                            <li>• 產業實習機會</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 徵片中心 -->
+                    <div class="ecosystem-card animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">徵片中心 (AIF.Center)</h4>
+                        <p class="text-gray-300 mb-4">
+                            全球內容徵集與篩選，版權信息管理與追溯，全球分發網絡協調
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li>• 全球作品徵集</li>
+                            <li>• 版權管理追溯</li>
+                            <li>• 內容品質篩選</li>
+                            <li>• 分發網絡整合</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 404.world互動流媒體平台 -->
+                    <div class="ecosystem-card animate-slide-up" style="animation-delay: 0.6s;">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">404.world互動平台</h4>
+                        <p class="text-gray-300 mb-4">
+                            基於AI的個性化內容生成，用戶互動與共創體驗，「觀看即挖礦」激勵機制
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li>• AI個性化內容</li>
+                            <li>• 互動式觀影體驗</li>
+                            <li>• 觀看挖礦機制</li>
+                            <li>• 社群共創功能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 兩大基礎設施 -->
+            <div>
+                <h3 class="text-2xl font-bold text-center mb-8 text-yellow-400">兩大基礎設施</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- AIF.Market交易平台 -->
+                    <div class="ecosystem-card animate-slide-up">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">AIF.Market交易平台</h4>
+                        <p class="text-gray-300 mb-4">
+                            專業NFT鑄造與交易平台，智能合約自動化執行，完整的授權管理系統
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-400">
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">核心功能</h5>
+                                <ul class="space-y-1">
+                                    <li>• NFT鑄造與交易</li>
+                                    <li>• 版權管理</li>
+                                    <li>• 智能版稅分配</li>
+                                    <li>• 組合交易機制</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">技術特色</h5>
+                                <ul class="space-y-1">
+                                    <li>• 跨鏈兼容</li>
+                                    <li>• 低手續費</li>
+                                    <li>• 高安全性</li>
+                                    <li>• 快速確認</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AIF交易所 -->
+                    <div class="ecosystem-card animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="ecosystem-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">AIF交易所</h4>
+                        <p class="text-gray-300 mb-4">
+                            多代幣流動性支持，專業級交易工具，合規化資產管理，FilmToken發行與流通
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-400">
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">交易功能</h5>
+                                <ul class="space-y-1">
+                                    <li>• AIF代幣交易</li>
+                                    <li>• FilmToken發行</li>
+                                    <li>• 流動性挖礦</li>
+                                    <li>• 跨鏈資產管理</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-white mb-2">專業服務</h5>
+                                <ul class="space-y-1">
+                                    <li>• 機構級安全</li>
+                                    <li>• 合規報告</li>
+                                    <li>• 24/7客服</li>
+                                    <li>• API接口</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 生態價值流轉 -->
+            <div class="mt-16 card p-8 animate-fade-in">
+                <h3 class="text-2xl font-bold text-center mb-8">生態價值流轉機制</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h4 class="font-bold mb-2">創作者</h4>
+                        <p class="text-sm text-gray-400">生產優質內容，獲得代幣激勵與版稅收益</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h4 class="font-bold mb-2">投資者</h4>
+                        <p class="text-sm text-gray-400">提供資金支持，分享項目成功收益</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⚙️</div>
+                        <h4 class="font-bold mb-2">技術開發者</h4>
+                        <p class="text-sm text-gray-400">構建基礎設施，獲得生態建設獎勵</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">👥</div>
+                        <h4 class="font-bold mb-2">觀眾用戶</h4>
+                        <p class="text-sm text-gray-400">參與互動消費，享受優質內容與獨特體驗</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 平台特色區 -->
+    <section class="py-20" id="features">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">平台核心特色</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    基於區塊鏈技術的創新NFT平台，為AI電影產業提供完整的數位資產解決方案
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- 特色1 -->
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">智能版權保護</h3>
+                    <p class="text-gray-300 mb-4">
+                        透過區塊鏈技術確保每個NFT的版權資訊不可篡改，保護創作者的知識產權
+                    </p>
+                    <div class="copyright-info">
+                        <div class="text-sm text-red-300 mb-2">
+                            <i class="fas fa-lock mr-2"></i>區塊鏈保護
+                        </div>
+                        <div class="text-xs text-gray-400">
+                            每個NFT都包含完整的版權鏈條記錄
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 特色2 -->
+                <div class="card p-8 text-center animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">自動版稅分配</h3>
+                    <p class="text-gray-300 mb-4">
+                        智能合約自動執行版稅分配，創作者可從每次二級市場交易中獲得持續收益
+                    </p>
+                    <div class="royalty-demo">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>創作者版稅</span>
+                            <span class="text-yellow-400 font-bold">10%</span>
+                        </div>
+                        <div class="progress-bar w-full h-2 opacity-75"></div>
+                        <div class="text-xs text-gray-400 mt-2">
+                            每次轉售自動分配
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 特色3 -->
+                <div class="card p-8 text-center animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">組合交易機制</h3>
+                    <p class="text-gray-300 mb-4">
+                        支持將相關NFT資產打包交易，如角色設計+台詞+周邊設計的完整IP包
+                    </p>
+                    <div class="flex justify-center space-x-2 mt-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-lg flex items-center justify-center text-xs">
+                            角色
+                        </div>
+                        <div class="text-2xl text-yellow-400">+</div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-lg flex items-center justify-center text-xs">
+                            場景
+                        </div>
+                        <div class="text-2xl text-yellow-400">+</div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-lg flex items-center justify-center text-xs">
+                            配樂
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 特色4 -->
+                <div class="card p-8 text-center animate-slide-up" style="animation-delay: 0.6s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">授權管理系統</h3>
+                    <p class="text-gray-300 mb-4">
+                        基於智能合約的授權管理，自動化處理IP使用期限、地域限制和授權費用
+                    </p>
+                    <div class="text-sm text-gray-400">
+                        <div class="flex justify-between mb-1">
+                            <span>使用期限</span>
+                            <span class="text-green-400">永久/限時</span>
+                        </div>
+                        <div class="flex justify-between mb-1">
+                            <span>地域範圍</span>
+                            <span class="text-green-400">全球/地區</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>獨占性</span>
+                            <span class="text-green-400">獨家/非獨家</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 特色5 -->
+                <div class="card p-8 text-center animate-slide-up" style="animation-delay: 0.8s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">衍生開發激勵</h3>
+                    <p class="text-gray-300 mb-4">
+                        鼓勵基於原創NFT的二次創作，原創者可從衍生作品中獲得收益分成
+                    </p>
+                    <div class="text-xs text-gray-400 bg-black bg-opacity-30 p-3 rounded-lg">
+                        原創NFT → 衍生作品 → 收益分成 → 持續創新
+                    </div>
+                </div>
+                
+                <!-- 特色6 -->
+                <div class="card p-8 text-center animate-slide-up" style="animation-delay: 1.0s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">全球流通交易</h3>
+                    <p class="text-gray-300 mb-4">
+                        支持跨鏈技術，讓NFT在不同區塊鏈網絡間自由流通，擴大市場覆蓋範圍
+                    </p>
+                    <div class="flex justify-center space-x-4 text-sm">
+                        <div class="text-center">
+                            <div class="text-yellow-400 font-bold">ETH</div>
+                            <div class="text-xs text-gray-400">以太坊</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-yellow-400 font-bold">BSC</div>
+                            <div class="text-xs text-gray-400">幣安鏈</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-yellow-400 font-bold">POLY</div>
+                            <div class="text-xs text-gray-400">Polygon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT鑄造區 -->
     <section class="py-20" id="create">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="card rounded-xl p-8 md:p-12 animate-fade-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">創建您的AI電影NFT</h2>
+                        <p class="text-xl text-gray-300 mb-8">
+                            將您的AI生成電影資產轉化為有價值的NFT，在AIFNFT平台上建立所有權、設定版稅條款，並與全球收藏者社群連接
+                        </p>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <div class="text-red-400 mr-4 mt-1">
+                                    <i class="fas fa-magic text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">直接從AI輸出鑄造NFT</h3>
+                                    <p class="text-gray-400">
+                                        無縫將您的AI生成場景、角色和概念轉換為NFT，保持創作的完整性和原創性
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-red-400 mr-4 mt-1">
+                                    <i class="fas fa-percentage text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">自定義版稅條款</h3>
+                                    <p class="text-gray-400">
+                                        設定5-15%的版稅比例，從二級市場銷售中獲得持續收益，建立長期被動收入來源
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-red-400 mr-4 mt-1">
+                                    <i class="fas fa-share-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">創建版權股份NFT</h3>
+                                    <p class="text-gray-400">
+                                        將電影的知識產權分割並代幣化，讓粉絲和投資者參與您的創作成功
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-red-400 mr-4 mt-1">
+                                    <i class="fas fa-globe text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">全球市場曝光</h3>
+                                    <p class="text-gray-400">
+                                        接觸來自世界各地的收藏者和電影愛好者，擴大您的作品影響力
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="btn-primary px-8 py-4 rounded-lg font-medium text-lg">
+                                開始鑄造NFT
+                            </button>
+                            <button class="btn-secondary px-8 py-4 rounded-lg font-medium text-lg">
+                                了解鑄造流程
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-purple-600 to-blue-800 rounded-xl shadow-2xl flex items-center justify-center text-white font-bold text-xl">
+                            NFT創建示意圖
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-red-600 text-white p-4 rounded-xl transform rotate-6 shadow-lg">
+                            <div class="text-sm font-medium">低手續費</div>
+                            <div class="text-2xl font-bold">僅需 2.5%</div>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-yellow-600 text-black p-4 rounded-xl transform -rotate-6 shadow-lg">
+                            <div class="text-sm font-medium">版稅收益</div>
+                            <div class="text-2xl font-bold">高達 15%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們區 -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-black" id="about">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
                 <div class="animate-fade-in">
-                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-6">創建您的AI影視NFT</h2>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        將您的AI生成電影資產轉化為有價值的NFT。建立所有權，設定版稅條款，連接全球收藏家社群。
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">關於AIFNFT平台</h2>
+                    <p class="text-xl text-gray-300 mb-12">
+                        AIFNFT是香港AI國際電影節(HKAIIFF)官方NFT平台，致力於構建全球首個完整的AI原生影視產業生態系統
                     </p>
-                    
-                    <div class="space-y-6 mb-8">
-                        <div class="flex items-start">
-                            <div class="feature-icon mr-4">
-                                <i class="fas fa-magic"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold mb-2">AI輸出直接鑄造</h3>
-                                <p class="text-gray-400">無縫將AI生成的場景、角色和概念轉換為NFT</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="feature-icon mr-4">
-                                <i class="fas fa-percentage"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold mb-2">自定義版稅設定</h3>
-                                <p class="text-gray-400">設定您的版稅條款，從二級市場銷售中持續獲得收益</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="feature-icon mr-4">
-                                <i class="fas fa-copyright"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold mb-2">版權所有權股份</h3>
-                                <p class="text-gray-400">代幣化並銷售您電影知識產權的部分所有權</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="feature-icon mr-4">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold mb-2">區塊鏈保護</h3>
-                                <p class="text-gray-400">利用區塊鏈技術確保作品的真實性和不可篡改性</p>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="card p-8 animate-slide-up">
+                        <div class="text-4xl mb-4">🎬</div>
+                        <h3 class="text-xl font-bold mb-4">AI影視創新</h3>
+                        <p class="text-gray-400">
+                            專注於AI生成電影內容的NFT化，推動影視產業數位轉型
+                        </p>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="btn-primary px-8 py-3 rounded-full font-medium">
-                            <i class="fas fa-plus mr-2"></i>
-                            開始創建
-                        </button>
-                        <button class="btn-secondary px-8 py-3 rounded-full font-medium">
-                            <i class="fas fa-play mr-2"></i>
-                            觀看教學
-                        </button>
+                    <div class="card p-8 animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="text-4xl mb-4">🔗</div>
+                        <h3 class="text-xl font-bold mb-4">區塊鏈技術</h3>
+                        <p class="text-gray-400">
+                            運用先進的區塊鏈技術確保版權保護和價值分配的透明性
+                        </p>
+                    </div>
+                    
+                    <div class="card p-8 animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="text-4xl mb-4">🌍</div>
+                        <h3 class="text-xl font-bold mb-4">全球生態</h3>
+                        <p class="text-gray-400">
+                            連接創作者、投資者和觀眾，建立真正的共生關係
+                        </p>
                     </div>
                 </div>
                 
-                <div class="relative animate-fade-in">
-                    <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="NFT創建過程" class="w-full h-auto rounded-2xl shadow-2xl">
-                    <div class="absolute -top-6 -right-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-xl transform rotate-3 shadow-lg">
-                        <div class="text-sm font-medium">低手續費</div>
-                        <div class="text-2xl font-bold">僅 2.5%</div>
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-green-500 to-teal-500 text-white p-4 rounded-xl transform -rotate-3 shadow-lg">
-                        <div class="text-sm font-medium">快速鑄造</div>
-                        <div class="text-2xl font-bold">< 30秒</div>
+                <div class="card p-8 md:p-12 animate-fade-in">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold mb-6">我們的使命</h3>
+                            <p class="text-gray-300 mb-4">
+                                通過區塊鏈技術實現創作者、投資者、觀眾與平台之間的真正共生關係，推動影視產業向更加公平、透明、創新的方向發展。
+                            </p>
+                            <p class="text-gray-300 mb-6">
+                                成為AI與人類創意協同的橋梁，塑造未來電影藝術形態，建立以價值普惠為核心的全球影視產業新標準。
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span>透明化價值分配機制</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span>創新的知識產權保護</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span>全球化的創作者社群</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="w-full h-80 bg-gradient-to-br from-blue-600 to-purple-800 rounded-xl shadow-2xl flex items-center justify-center text-white font-bold text-xl">
+                                AI電影技術展示
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 關於HKAIIFF區塊 -->
-    <section class="py-20 bg-gradient-to-b from-gray-900 to-black" id="about">
+    <!-- 訂閱區 -->
+    <section class="py-20 bg-gradient-to-r from-red-900 to-yellow-900">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-3xl md:text-4xl font-bold mb-6">關於香港AI國際電影節</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    HKAIIFF致力於構建全球首個完整的AI原生影視產業生態系統，
-                    通過創新的區塊鏈技術重塑電影產業的創作、融資、分發和價值分配機制。
+            <div class="max-w-3xl mx-auto text-center animate-fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">加入香港AI國際電影節(HKAIIFF)生態</h2>
+                <p class="text-xl text-gray-200 mb-8">
+                    訂閱我們的資訊，獲得獨家NFT發售、收藏品早期訪問權，以及AI生成電影資產的最新洞察。參與全球首個AI原生影視產業生態系統
                 </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 animate-fade-in">
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto mb-4">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">AI原生內容</h3>
-                    <p class="text-gray-400">
-                        展示和推廣全球最優秀的AI生成電影作品，為創作者提供展示平台
-                    </p>
-                </div>
-                
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto mb-4">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">NFT資產化</h3>
-                    <p class="text-gray-400">
-                        將電影IP進行數位資產化，實現透明化的版權管理和價值分配
-                    </p>
-                </div>
-                
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto mb-4">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">全球社群</h3>
-                    <p class="text-gray-400">
-                        連接創作者、投資者、觀眾，構建真正的共生關係生態系統
-                    </p>
-                </div>
-            </div>
-
-            <!-- 生態系統架構 -->
-            <div class="mb-16 animate-fade-in">
-                <h3 class="text-2xl font-bold text-center mb-12">「4+1+1」生態架構</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-trophy text-3xl text-yellow-400 mb-3"></i>
-                            <h4 class="font-bold">展映競賽單元</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            全球AI原生影視作品展示平台，專業評審與行業認可
-                        </p>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-graduation-cap text-3xl text-blue-400 mb-3"></i>
-                            <h4 class="font-bold">AI電影學院</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            AI影視技能培訓與認證，人才培養與產業對接
-                        </p>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-globe text-3xl text-green-400 mb-3"></i>
-                            <h4 class="font-bold">徵片中心</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            全球內容徵集與篩選，版權管理與全球分發
-                        </p>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-play-circle text-3xl text-purple-400 mb-3"></i>
-                            <h4 class="font-bold">互動流媒體</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            AI個性化內容生成，用戶互動與共創體驗
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-store text-3xl text-cyan-400 mb-3"></i>
-                            <h4 class="font-bold">AIF.Market交易平台</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            NFT鑄造、交易與授權管理，智能合約自動化執行
-                        </p>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-exchange-alt text-3xl text-orange-400 mb-3"></i>
-                            <h4 class="font-bold">AIF交易所</h4>
-                        </div>
-                        <p class="text-sm text-gray-400 text-center">
-                            多代幣流動性支持，專業級交易工具
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 社群與支援區塊 -->
-    <section class="py-20" id="community">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-3xl md:text-4xl font-bold mb-6">加入我們的社群</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    與全球AI電影愛好者、創作者和收藏家一起，共同構建未來的電影產業
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 animate-fade-in">
-                <a href="#" class="card p-6 text-center hover:transform hover:scale-105 transition-all duration-300">
-                    <i class="fab fa-discord text-4xl text-purple-400 mb-4"></i>
-                    <h3 class="font-bold mb-2">Discord</h3>
-                    <p class="text-sm text-gray-400">即時交流與討論</p>
-                    <div class="text-green-400 text-sm mt-2">
-                        <i class="fas fa-circle text-xs mr-1"></i>
-                        12,543 成員在線
-                    </div>
-                </a>
-                
-                <a href="#" class="card p-6 text-center hover:transform hover:scale-105 transition-all duration-300">
-                    <i class="fab fa-telegram text-4xl text-blue-400 mb-4"></i>
-                    <h3 class="font-bold mb-2">Telegram</h3>
-                    <p class="text-sm text-gray-400">最新消息推送</p>
-                    <div class="text-green-400 text-sm mt-2">
-                        <i class="fas fa-users text-xs mr-1"></i>
-                        8,756 訂閱者
-                    </div>
-                </a>
-                
-                <a href="#" class="card p-6 text-center hover:transform hover:scale-105 transition-all duration-300">
-                    <i class="fab fa-twitter text-4xl text-cyan-400 mb-4"></i>
-                    <h3 class="font-bold mb-2">Twitter</h3>
-                    <p class="text-sm text-gray-400">官方動態更新</p>
-                    <div class="text-green-400 text-sm mt-2">
-                        <i class="fas fa-heart text-xs mr-1"></i>
-                        15,234 關注者
-                    </div>
-                </a>
-                
-                <a href="#" class="card p-6 text-center hover:transform hover:scale-105 transition-all duration-300">
-                    <i class="fab fa-youtube text-4xl text-red-400 mb-4"></i>
-                    <h3 class="font-bold mb-2">YouTube</h3>
-                    <p class="text-sm text-gray-400">教學與展示</p>
-                    <div class="text-green-400 text-sm mt-2">
-                        <i class="fas fa-play text-xs mr-1"></i>
-                        23,567 訂閱
-                    </div>
-                </a>
-            </div>
-
-            <!-- 電子報訂閱 -->
-            <div class="card p-8 lg:p-12 text-center animate-fade-in">
-                <h3 class="text-2xl md:text-3xl font-bold mb-4">訂閱我們的電子報</h3>
-                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                    獲取獨家NFT空投、搶先體驗收藏品，以及AI電影產業的最新洞察
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" placeholder="輸入您的電子郵件" 
-                           class="input-field rounded-full px-6 py-3 flex-1">
-                    <button class="btn-primary px-8 py-3 rounded-full font-medium whitespace-nowrap">
-                        <i class="fas fa-paper-plane mr-2"></i>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="請輸入您的電子郵件" class="input-field rounded-full px-6 py-4 w-full text-lg">
+                    <button class="btn-primary px-8 py-4 rounded-full font-medium text-lg whitespace-nowrap">
                         立即訂閱
                     </button>
                 </div>
-                
-                <p class="text-sm text-gray-500 mt-4">
-                    我們尊重您的隱私，絕不會分享您的個人資訊
+                <p class="text-sm text-gray-300 mt-4">
+                    訂閱即表示同意接收AIFNFT平台的行銷資訊，您可以隨時取消訂閱
                 </p>
             </div>
         </div>
     </section>
 
     <!-- 頁腳 -->
-    <footer class="bg-black py-16">
+    <footer class="footer py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div>
                     <a href="#" class="flex flex-col items-start mb-6">
-                        <div class="logo-font text-2xl">AIFNFT</div>
-                        <div class="logo-sub text-left">香港AI國際電影節官方NFT平台</div>
+                        <div class="logo-font">AIFNFT</div>
+                        <div class="logo-sub">香港AI國際電影節官方NFT平台</div>
                     </a>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        通過AI和區塊鏈技術革命電影產業，為創作者、投資者和觀眾構建共生生態系統。
+                    <p class="text-gray-400 mb-6">
+                        香港AI國際電影節官方NFT平台，透過區塊鏈技術革新電影產業的數位資產交易。
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                            <i class="fab fa-twitter text-xl"></i>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition text-xl">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                            <i class="fab fa-telegram text-xl"></i>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition text-xl">
+                            <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                            <i class="fab fa-discord text-xl"></i>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition text-xl">
+                            <i class="fab fa-discord"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                            <i class="fab fa-youtube text-xl"></i>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition text-xl">
+                            <i class="fab fa-medium"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                            <i class="fab fa-github text-xl"></i>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition text-xl">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-6">平台功能</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#marketplace" class="text-gray-400 hover:text-blue-400 transition">NFT市場</a></li>
-                        <li><a href="#collections" class="text-gray-400 hover:text-blue-400 transition">精選收藏</a></li>
-                        <li><a href="#create" class="text-gray-400 hover:text-blue-400 transition">創建NFT</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">我的收藏</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">版權管理</a></li>
+                    <h3 class="text-lg font-semibold mb-4">平台功能</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#marketplace" class="text-gray-400 hover:text-red-400 transition">NFT市場</a></li>
+                        <li><a href="#collections" class="text-gray-400 hover:text-red-400 transition">收藏品</a></li>
+                        <li><a href="#create" class="text-gray-400 hover:text-red-400 transition">鑄造NFT</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-red-400 transition">平台特色</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">版權管理</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-6">資源中心</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">白皮書</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">開發文檔</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">代幣經濟</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">API接口</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">技術支援</a></li>
+                    <h3 class="text-lg font-semibold mb-4">資源中心</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">白皮書</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">開發文檔</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">NFT指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">API文檔</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">幫助中心</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-6">法律條款</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">服務條款</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">隱私政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">版權政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">監管合規</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">聯絡我們</a></li>
+                    <h3 class="text-lg font-semibold mb-4">法律資訊</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">使用條款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">隱私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">版權政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">監管合規</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">聯絡我們</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="border-t border-gray-800 pt-8 text-center">
                 <p class="text-gray-500 text-sm">
-                    © 2025 香港AI國際電影節NFT平台. 版權所有. 
-                    <span class="mx-2">|</span>
-                    官方網站: <a href="#" class="text-blue-400 hover:underline">www.hkaiiff.org</a>
+                    © 2025 香港AI國際電影節官方NFT平台 (AIFNFT). 版權所有.
+                </p>
+                <p class="text-gray-600 text-xs mt-2">
+                    本平台基於區塊鏈技術，致力於保護創作者權益和推動AI影視產業發展
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // 導航欄滾動效果
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // 移動端選單功能
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-
-        function openMobileMenu() {
-            mobileMenu.classList.add('open');
-            mobileMenuOverlay.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('open');
-            mobileMenuOverlay.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        mobileMenuBtn.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-        // 平滑滾動
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 100; // 導航欄高度補償
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                    closeMobileMenu(); // 關閉移動端選單
-                }
-            });
-        });
-
-        // 語言切換功能
-        const languageLinks = document.querySelectorAll('.language-dropdown a');
-        const currentLanguage = document.querySelector('.language-selector > div');
-
-        languageLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                const flag = this.querySelector('img').src;
-                const text = this.textContent.trim();
-                
-                // 更新當前語言顯示
-                currentLanguage.innerHTML = `
-                    <img src="${flag}" alt="${text}" class="w-5 h-5 mr-2">
-                    <span class="text-sm">${lang === 'zh-Hant' ? '繁中' : lang === 'zh-Hans' ? '简中' : lang.toUpperCase()}</span>
-                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                `;
-                
-                // 這裡可以添加實際的語言切換邏輯
-                console.log(`切換到語言: ${lang}`);
-            });
-        });
-
-        // 登入選項處理
-        const loginOptions = document.querySelectorAll('.login-option');
-        
-        loginOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                const loginType = this.getAttribute('data-login');
-                
-                // 模擬登入過程
-                if (loginType === 'metamask' || loginType === 'walletconnect') {
-                    alert(`正在連接 ${loginType.charAt(0).toUpperCase() + loginType.slice(1)} 錢包...`);
-                } else {
-                    alert(`正在使用 ${loginType.charAt(0).toUpperCase() + loginType.slice(1)} 登入...`);
-                }
-            });
-        });
-
-        // 篩選器功能
-        const filterPills = document.querySelectorAll('.filter-pill');
-        
-        filterPills.forEach(pill => {
-            pill.addEventListener('click', function() {
-                // 移除所有active類
-                filterPills.forEach(p => p.classList.remove('active'));
-                // 添加active類到點擊的項目
-                this.classList.add('active');
-                
-                // 這裡可以添加實際的篩選邏輯
-                console.log(`篩選: ${this.textContent}`);
-            });
-        });
-
-        // 動畫觀察器
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // 觀察所有動畫元素
-        document.querySelectorAll('.animate-fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // 創建動態數據流
+        // 創建數據流動畫
         function createDataStreams() {
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 5; i++) {
                 setTimeout(() => {
                     const stream = document.createElement('div');
                     stream.className = 'data-stream';
                     stream.style.left = Math.random() * 100 + '%';
-                    stream.style.animationDelay = Math.random() * 3 + 's';
-                    stream.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    stream.style.animationDelay = Math.random() * 2 + 's';
                     document.body.appendChild(stream);
                     
                     // 動畫結束後移除
                     setTimeout(() => {
-                        if (stream.parentNode) {
-                            stream.remove();
-                        }
-                    }, 5000);
-                }, i * 2000);
+                        stream.remove();
+                    }, 4000);
+                }, i * 3000);
             }
         }
-
-        // 初始化數據流
+        
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
+            // 啟動數據流
             createDataStreams();
-            setInterval(createDataStreams, 12000);
-        });
-
-        // NFT卡片互動效果
-        document.querySelectorAll('.nft-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+            setInterval(createDataStreams, 15000);
+            
+            // 滾動動畫
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-right');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        if (entry.target.classList.contains('animate-slide-up')) {
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                        if (entry.target.classList.contains('animate-slide-right')) {
+                            entry.target.style.transform = 'translateX(0)';
+                        }
+                        if (entry.target.classList.contains('animate-fade-in')) {
+                            entry.target.style.transform = 'scale(1)';
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('animate-slide-up')) {
+                    el.style.transform = 'translateY(50px)';
+                }
+                if (el.classList.contains('animate-slide-right')) {
+                    el.style.transform = 'translateX(-50px)';
+                }
+                if (el.classList.contains('animate-fade-in')) {
+                    el.style.transform = 'scale(0.95)';
+                }
+                observer.observe(el);
             });
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            // 手機菜單功能
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // 點擊菜單項目後關閉手機菜單
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // 登入選項處理
+            const loginOptions = document.querySelectorAll('.login-option');
+            
+            loginOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const loginType = option.getAttribute('data-login');
+                    
+                    if (loginType === 'metamask' || loginType === 'walletconnect') {
+                        alert(`正在連接${loginType === 'metamask' ? 'MetaMask' : 'WalletConnect'}錢包...`);
+                    } else {
+                        const loginMap = {
+                            'google': 'Google',
+                            'facebook': 'Facebook', 
+                            'twitter': 'Twitter',
+                            'apple': 'Apple'
+                        };
+                        alert(`正在使用${loginMap[loginType]}登入...`);
+                    }
+                });
+            });
+            
+            // 篩選器功能
+            const filterPills = document.querySelectorAll('.filter-pill');
+            
+            filterPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    // 移除所有活躍狀態
+                    filterPills.forEach(p => p.classList.remove('active'));
+                    // 添加活躍狀態到被點擊的按鈕
+                    pill.classList.add('active');
+                    
+                    // 這裡可以添加實際的篩選邏輯
+                    console.log('篩選類別:', pill.textContent);
+                });
+            });
+            
+            // 平滑滾動
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // 考慮導航欄高度
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 導航欄滾動效果
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                    navbar.style.backdropFilter = 'blur(20px)';
+                } else {
+                    navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                }
+                
+                lastScrollY = currentScrollY;
             });
         });
-
-        // 電子報訂閱
-        document.querySelector('button[type="submit"], .btn-primary:has(.fa-paper-plane)')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            const email = document.querySelector('input[type="email"]').value;
-            if (email) {
-                alert('感謝訂閱！您將收到我們的最新消息。');
-                document.querySelector('input[type="email"]').value = '';
-            } else {
-                alert('請輸入有效的電子郵件地址。');
-            }
-        });
-
-        // 搜索功能
-        document.querySelector('.fa-search')?.parentElement.querySelector('input')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const searchTerm = this.value;
-                if (searchTerm) {
-                    alert(`搜索: "${searchTerm}"`);
-                }
-            }
-        });
-
-        // 手機響應式調整
-        function handleResize() {
-            if (window.innerWidth <= 768) {
-                // 移動端特定調整
-                document.querySelectorAll('.hero').forEach(hero => {
-                    hero.style.minHeight = '80vh';
-                });
-            }
-        }
-
-        window.addEventListener('resize', handleResize);
-        handleResize(); // 初始調用
     </script>
 </body>
 </html>
