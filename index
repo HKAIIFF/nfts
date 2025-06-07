@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIF生态系统与NFT价值信息图 | HKAIIFF 深度解析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--
+        Color Palette Selection: "Brilliant Blues"
+        HEX Codes:
+        - Primary Dark: #003F5C
+        - Accent Blue: #34657F
+        - Medium Blue: #6699CC
+        - Light Blue: #99CCFF
+        - Background/Lightest Blue: #CCE5FF
+        - Text/Neutral Dark: #1a202c
+        - Background: #f7fafc
+    -->
+    <!-- CONFIRMATION: NO SVG GRAPHICS USED. -->
+    <!-- CONFIRMATION: NO MERMAID JS USED. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f7fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-node {
+            transition: all 0.3s ease-in-out;
+        }
+        .flowchart-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .arrow {
+            position: relative;
+            color: #34657F;
+        }
+        .arrow-down::after {
+            content: '▼';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #6699CC;
+        }
+        .flywheel-arrow {
+            content: '➜';
+            font-size: 2rem;
+            color: #6699CC;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#003F5C] mb-4">重塑电影未来：HKAIIFF生态系统与NFT价值深度解析</h1>
+            <p class="text-lg text-[#34657F] max-w-3xl mx-auto">一份关于香港AI国际电影节如何通过革命性的代币经济模型，解决行业痛点，并释放创作者、投资者与观众核心价值的视觉指南。</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="market-growth">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-[#003F5C] text-center mb-2">1. 时代机遇：AI原生内容的爆发式增长</h2>
+                    <p class="text-center text-[#34657F] mb-8 max-w-2xl mx-auto">人工智能生成内容（AIGC）市场正以前所未有的速度扩张，预示着一个由AI驱动的创意经济新纪元的到来。这为HKAIIFF生态系统的发展提供了广阔的市场前景。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="marketGrowthChart"></canvas>
+                        </div>
+                        <div class="space-y-6 text-center md:text-left">
+                            <div>
+                                <p class="text-5xl font-bold text-[#6699CC]">>$2000亿</p>
+                                <p class="text-lg text-[#34657F]">2030年全球AIGC市场规模预测</p>
+                            </div>
+                            <div>
+                                <p class="text-5xl font-bold text-[#6699CC]">83%</p>
+                                <p class="text-lg text-[#34657F]">2023至2025年复合年均增长率</p>
+                            </div>
+                            <div>
+                                <p class="text-5xl font-bold text-[#6699CC]">$260亿</p>
+                                <p class="text-lg text-[#34657F]">2025年亚太区AI影视内容市场预测</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="ecosystem-structure">
+                <h2 class="text-3xl font-bold text-[#003F5C] text-center mb-2">2. 核心解构：三位一体的代币经济模型</h2>
+                <p class="text-center text-[#34657F] mb-10 max-w-3xl mx-auto">HKAIIFF生态系统的基石是一个精巧的多代币体系。NFT、AIF代币和FilmToken各司其职，功能互补，共同构建了一个稳定、高效且价值互通的经济闭环，从根本上解决了传统电影产业的痛点。</p>
+                
+                <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-6 items-start">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flowchart-node text-center h-full flex flex-col justify-between">
+                        <div>
+                            <div class="text-5xl mb-4">🖼️</div>
+                            <h3 class="text-2xl font-bold text-[#003F5C]">NFT模块</h3>
+                            <p class="text-[#34657F] font-semibold mt-2 mb-4">独一无二的资产凭证</p>
+                            <p class="text-gray-600">代表具体的知识产权（IP），如剧本、角色设计、音乐版权等。其核心是确权、授权和版税追溯，实现IP资产的颗粒化管理与价值流转。</p>
+                        </div>
+                        <div class="mt-6 text-sm bg-[#CCE5FF] text-[#003F5C] rounded-full px-4 py-1 font-semibold">非同质化 · 资产特定</div>
+                    </div>
+            
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flowchart-node text-center h-full flex flex-col justify-between border-2 border-[#6699CC]">
+                        <div>
+                            <div class="text-5xl mb-4">🌐</div>
+                            <h3 class="text-2xl font-bold text-[#003F5C]">AIF 代币</h3>
+                            <p class="text-[#34657F] font-semibold mt-2 mb-4">生态系统的通用燃料与治理核心</p>
+                            <p class="text-gray-600">作为平台通用实用代币，用于支付手续费、参与平台治理、获取生态激励和质押权益。其价值与整个HKAIIFF生态的繁荣度直接挂钩。</p>
+                        </div>
+                        <div class="mt-6 text-sm bg-[#6699CC] text-white rounded-full px-4 py-1 font-semibold">同质化 · 生态全局</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flowchart-node text-center h-full flex flex-col justify-between">
+                        <div>
+                            <div class="text-5xl mb-4">🎟️</div>
+                            <h3 class="text-2xl font-bold text-[#003F5C]">FilmToken</h3>
+                            <p class="text-[#34657F] font-semibold mt-2 mb-4">特定电影项目的投资凭证</p>
+                            <p class="text-gray-600">代表特定电影项目的未来收益分享权。投资者通过购买FilmToken为电影融资，并分享电影成功带来的商业回报。</p>
+                        </div>
+                        <div class="mt-6 text-sm bg-[#CCE5FF] text-[#003F5C] rounded-full px-4 py-1 font-semibold">同质化 · 项目特定</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="nft-functions">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-[#003F5C] mb-4">3. 价值引擎：NFT模块的五大核心功能</h2>
+                            <p class="text-gray-600 mb-6">NFT不仅是数字收藏品，更是赋予创作者前所未有权力的生产力工具。在AIF.Market中，NFT通过多元化的功能设计，重塑了IP的创造、管理和变现模式。</p>
+                            <ul class="space-y-3 text-[#34657F]">
+                                <li class="flex items-start"><span class="font-bold text-[#6699CC] mr-2">✓</span> <strong>多级版权管理:</strong> 对IP进行精细化确权，保护创作者的每一个创意火花。</li>
+                                <li class="flex items-start"><span class="font-bold text-[#6699CC] mr-2">✓</span> <strong>灵活版税设置:</strong> 确保创作者在IP的每一次流转中都能持续获得收益。</li>
+                                <li class="flex items-start"><span class="font-bold text-[#6699CC] mr-2">✓</span> <strong>组合交易机制:</strong> 打包相关IP资产，提升整体价值和商业灵活性。</li>
+                                <li class="flex items-start"><span class="font-bold text-[#6699CC] mr-2">✓</span> <strong>自动化授权系统:</strong> 简化IP授权流程，降低沟通与管理成本。</li>
+                                <li class="flex items-start"><span class="font-bold text-[#6699CC] mr-2">✓</span> <strong>衍生开发激励:</strong> 鼓励二次创作，无限延伸原创IP的生命周期和价值。</li>
+                            </ul>
+                        </div>
+                        <div class="chart-container h-96 md:h-[420px]">
+                            <canvas id="nftFunctionsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="synergy-flywheel">
+                <h2 class="text-3xl font-bold text-[#003F5C] text-center mb-2">4. 协同共生：NFT与AIF代币的价值飞轮</h2>
+                <p class="text-center text-[#34657F] mb-10 max-w-3xl mx-auto">NFT生态的繁荣与AIF代币的价值并非零和游戏，而是一个相互驱动的增长飞轮。每一个NFT相关的活动都在为AIF代币注入需求和活力，而一个强大的AIF代币生态则为NFT资产提供了坚实的价值基础。</p>
+
+                <div class="relative p-8 bg-white rounded-2xl shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 items-center">
+                        
+                        <div class="text-center p-6 bg-blue-50 rounded-lg flowchart-node">
+                            <h3 class="text-xl font-bold text-[#003F5C]">NFT生态繁荣</h3>
+                            <p class="mt-2 text-gray-600">创作者铸造IP NFT、收藏家交易、IP被授权使用</p>
+                        </div>
+
+                        <div class="relative flex items-center justify-center">
+                            <div class="flywheel-arrow hidden md:block absolute -left-8 top-1/2 -translate-y-1/2"></div>
+                             <div class="flywheel-arrow block md:hidden absolute -top-8 left-1/2 -translate-x-1/2 rotate-90"></div>
+                            <div class="text-center p-6 bg-blue-50 rounded-lg flowchart-node">
+                                <h3 class="text-xl font-bold text-[#003F5C]">驱动AIF代币需求</h3>
+                                <p class="mt-2 text-gray-600">所有操作（铸造、交易、授权）均需使用AIF支付手续费</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center justify-center">
+                            <div class="flywheel-arrow hidden md:block absolute left-1/2 -translate-x-1/2 -bottom-10 rotate-90"></div>
+                            <div class="text-center p-6 bg-blue-50 rounded-lg flowchart-node">
+                                <h3 class="text-xl font-bold text-[#003F5C]">增强生态吸引力</h3>
+                                <p class="mt-2 text-gray-600">高流动性和活跃的经济环境吸引更多用户、创作者和投资者加入</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center justify-center">
+                           <div class="flywheel-arrow hidden md:block absolute -right-8 top-1/2 -translate-y-1/2 rotate-180"></div>
+                            <div class="flywheel-arrow block md:hidden absolute -bottom-8 left-1/2 -translate-x-1/2 -rotate-90"></div>
+                            <div class="text-center p-6 bg-blue-50 rounded-lg flowchart-node">
+                                <h3 class="text-xl font-bold text-[#003F5C]">AIF代币价值提升</h3>
+                                <p class="mt-2 text-gray-600">需求增加和通缩机制支撑AIF价值，治理功能更加稳固</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl text-[#99CCFF] opacity-30 select-none">🔄</div>
+                </div>
+            </section>
+            
+            <section id="aif-utility">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="aifUtilityChart"></canvas>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-[#003F5C] mb-4">5. 生态核心：AIF代币的多维应用场景</h2>
+                             <p class="text-gray-600 mb-6">AIF代币是贯穿整个HKAIIFF生态的价值媒介和治理工具，其应用场景被精心设计以确保平台的平稳运行和持续发展。代币的效用直接与生态系统的健康度挂钩，而非依赖投机。</p>
+                             <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-[#003F5C] mt-1.5 mr-3 flex-shrink-0"></div>
+                                    <div><strong class="text-[#003F5C]">平台治理:</strong> 持币者投票决定平台未来，实现去中心化自治。</div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-[#34657F] mt-1.5 mr-3 flex-shrink-0"></div>
+                                    <div><strong class="text-[#34657F]">手续费支付:</strong> 生态内所有核心交易的手续费支付媒介，使用AIF享折扣。</div>
+                                </div>
+                                 <div class="flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-[#6699CC] mt-1.5 mr-3 flex-shrink-0"></div>
+                                    <div><strong class="text-[#6699CC]">权益质押:</strong> 质押AIF获取平台增强型权益，如手续费减免、优先认购权等。</div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-4 h-4 rounded-full bg-[#99CCFF] mt-1.5 mr-3 flex-shrink-0"></div>
+                                    <div><strong class="text-[#99CCFF]">生态激励与孵化:</strong> 奖励生态贡献者，并通过基金扶持高潜力AI影视项目。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="stakeholder-benefits">
+                <h2 class="text-3xl font-bold text-[#003F5C] text-center mb-2">6. 价值普惠：生态为每一位参与者赋能</h2>
+                <p class="text-center text-[#34657F] mb-10 max-w-3xl mx-auto">HKAIIFF生态系统的最终目标是构建一个公平、透明、共赢的价值网络，让产业链的每一个环节都能从中受益。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center flowchart-node">
+                        <div class="text-5xl mb-4">🎨</div>
+                        <h3 class="text-2xl font-bold text-[#003F5C]">创作者</h3>
+                        <p class="mt-4 text-gray-600">获得前所未有的IP掌控权、透明的版税收益、多元化的融资渠道和直接面向全球市场的机会，摆脱传统发行模式的束缚。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center flowchart-node">
+                        <div class="text-5xl mb-4">💼</div>
+                        <h3 class="text-2xl font-bold text-[#003F5C]">投资者</h3>
+                        <p class="mt-4 text-gray-600">获得投资早期高潜力AI电影项目的透明渠道，通过FilmToken和NFT享受高流动性的资产和清晰的收益分配，降低信息不对称风险。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center flowchart-node">
+                        <div class="text-5xl mb-4">👥</div>
+                        <h3 class="text-2xl font-bold text-[#003F5C]">观众与社区</h3>
+                        <p class="mt-4 text-gray-600">从被动消费者转变为生态的参与者、共建者甚至拥有者。通过互动平台和NFT，深度参与喜爱IP的创作与发展，共享生态成长价值。</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+            <p class="text-[#34657F]">香港AI国际电影节 (HKAIIFF) · 引领AI原生影视产业的未来</p>
+            <p class="text-sm text-gray-400 mt-2">本信息图基于HKAIIFF官方白皮书及深度研究报告制作。所有数据和模型仅供参考。</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const CHART_COLORS = {
+                primaryDark: '#003F5C',
+                accentBlue: '#34657F',
+                mediumBlue: '#6699CC',
+                lightBlue: '#99CCFF',
+                lightestBlue: '#CCE5FF'
+            };
+
+            const FONT_DEFAULTS = {
+                font: {
+                    family: "'Noto Sans SC', sans-serif",
+                    size: 13,
+                },
+                color: '#4a5568'
+            };
+
+            function wrapLabel(label, maxLength = 16) {
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+            
+            const universalTooltipOptions = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: 'rgba(0, 63, 92, 0.9)',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                        displayColors: true,
+                    }
+                }
+            };
+
+            if (document.getElementById('marketGrowthChart')) {
+                new Chart(document.getElementById('marketGrowthChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['2023', '2025', '2027', '2030'],
+                        datasets: [{
+                            label: '全球AIGC市场规模 (十亿美元)',
+                            data: [30, 75, 120, 200],
+                            borderColor: CHART_COLORS.mediumBlue,
+                            backgroundColor: 'rgba(102, 153, 204, 0.2)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointBackgroundColor: CHART_COLORS.mediumBlue
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: '市场规模 (十亿美元)', ...FONT_DEFAULTS },
+                                ticks: { ...FONT_DEFAULTS }
+                            },
+                            x: {
+                                title: { display: true, text: '年份', ...FONT_DEFAULTS },
+                                ticks: { ...FONT_DEFAULTS }
+                            }
+                        },
+                        ...universalTooltipOptions,
+                        plugins: {
+                            ...universalTooltipOptions.plugins,
+                            legend: {
+                                labels: { ...FONT_DEFAULTS }
+                            }
+                        }
+                    }
+                });
+            }
+
+            if (document.getElementById('nftFunctionsChart')) {
+                new Chart(document.getElementById('nftFunctionsChart'), {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            wrapLabel('多级版权管理'), 
+                            wrapLabel('灵活版税设置'), 
+                            wrapLabel('组合交易机制'), 
+                            wrapLabel('自动化授权系统'), 
+                            wrapLabel('衍生开发激励')
+                        ],
+                        datasets: [{
+                            label: 'NFT功能成熟度与重要性',
+                            data: [9, 10, 7, 8, 9],
+                            backgroundColor: 'rgba(52, 101, 127, 0.4)',
+                            borderColor: CHART_COLORS.accentBlue,
+                            pointBackgroundColor: CHART_COLORS.accentBlue,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: CHART_COLORS.accentBlue
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 10,
+                                pointLabels: { ...FONT_DEFAULTS, font: {...FONT_DEFAULTS.font, size: 11}},
+                                grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                                angleLines: { color: 'rgba(0, 0, 0, 0.1)' }
+                            }
+                        },
+                         ...universalTooltipOptions,
+                        plugins: {
+                            ...universalTooltipOptions.plugins,
+                            legend: {
+                                position: 'top',
+                                labels: { ...FONT_DEFAULTS }
+                            }
+                        }
+                    }
+                });
+            }
+
+            if (document.getElementById('aifUtilityChart')) {
+                new Chart(document.getElementById('aifUtilityChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            wrapLabel('平台治理'), 
+                            wrapLabel('手续费支付'), 
+                            wrapLabel('权益质押'), 
+                            wrapLabel('生态激励与孵化')
+                        ],
+                        datasets: [{
+                            label: 'AIF代币应用场景分布',
+                            data: [25, 40, 20, 15],
+                            backgroundColor: [
+                                CHART_COLORS.primaryDark,
+                                CHART_COLORS.accentBlue,
+                                CHART_COLORS.mediumBlue,
+                                CHART_COLORS.lightBlue,
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%',
+                        ...universalTooltipOptions,
+                        plugins: {
+                            ...universalTooltipOptions.plugins,
+                            legend: {
+                                position: 'bottom',
+                                labels: { ...FONT_DEFAULTS, padding: 20 }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
